@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="static/styles/style.css">
+        <title>SPECS-MASTER | CPUs</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="pages">
+                    <a href="/" id="index-page-link" class="link"><p>Главная</p></a>
+                    <a href="/gpus" id="gpus-page-link" class="link"><p>Видеокарты</p></a>
+                    <a href="/cpus" id="cpus-page-link" class="link"><p>Процессоры</p></a>
+                </div>
+                <div class="lk-link-wrap">
+                    <a href="lk.hrml"><p>Профиль</p></a>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section class="about">
+                <p>Здесь вы можете сравнить характеристики разных процессоров. Выберите процессоры и нажмите СРАВНИТЬ.</p>
+            </section>
+            <section class="form-wrap">
+                <form id="cpus-for-compair">
+                    <div class="form-group">
+                        <label for="cpu1">Процессор 1:</label>
+                        <select name="cpu1" id="cpu1" required>
+                            <option value="none" selected>Выбрать...</option>
+                            <option value="amd-ryzen-7-5700x">AMD Ryzen 7 5700x</option>
+                            <option value="intel-core-i7-4570">Intel Core i7 4570</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cpu2">Процессор 2:</label>
+                        <select name="cpu2" id="cpu2" required>
+                            <option value="none" selected>Выбрать...</option>
+                            <option value="amd-ryzen-7-5700x">AMD Ryzen 7 5700x</option>
+                            <option value="intel-core-i7-4570">Intel Core i7 4570</option>
+                        </select>
+                    </div>
+                    <div class="form-controls">
+                        <button type="reset">Сбросить</button>
+                        <button type="submit">Сравнить</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+        <footer>
+            <p>None rights reserved</p>
+        </footer>
+        <script src="static/scripts/main.js"></script>
+    </body>
+</html>
