@@ -1,6 +1,7 @@
 fastapi
 uvicorn
 sqlalchemy
+greenlet
 aiomysql
 cryptography
 itsdangerous
