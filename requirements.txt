@@ -3,3 +3,7 @@ uvicorn
 sqlalchemy
 aiomysql
 cryptography
+itsdangerous
+python-multipart
+Pillow
+python-slugify

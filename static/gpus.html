@@ -1,53 +1,55 @@
 <!DOCTYPE html>
-<html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="static/styles/style.css">
-        <title>SPECS-MASTER | GPUs</title>
-    </head>
-    <body>
-        <header>
-            <nav>
-                <div class="pages">
-                    <a href="/" id="index-page-link" class="link"><p>Главная</p></a>
-                    <a href="/gpus" id="gpus-page-link" class="link"><p>Видеокарты</p></a>
-                    <a href="/cpus" id="cpus-page-link" class="link"><p>Процессоры</p></a>
+<html lang="ru" data-component-kind="gpus">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <title>Сравнение видеокарт — SPECS-MASTER</title>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navigation container" aria-label="Основная навигация">
+            <a class="brand" href="/">SPECS<span>-MASTER</span></a>
+            <div class="nav-links">
+                <a class="nav-link" href="/">Главная</a>
+                <a class="nav-link" href="/cpus">Процессоры</a>
+                <a class="nav-link active" href="/gpus">Видеокарты</a>
+            </div>
+            <div class="account-links"><a class="button button-outline profile-link" href="/lk">Войти</a></div>
+        </nav>
+    </header>
+    <main class="container page-content">
+        <section class="page-intro">
+            <p class="eyebrow">Каталог комплектующих</p>
+            <h1>Сравнение видеокарт</h1>
+            <p>Сопоставьте тип и объём видеопамяти, её частоту и частоту графического ядра.</p>
+        </section>
+        <section class="panel compare-panel">
+            <form id="comparison-form" class="comparison-form">
+                <div class="form-group">
+                    <label for="component-one">Первая видеокарта</label>
+                    <select id="component-one" name="first_id" required>
+                        <option value="">Загрузка списка...</option>
+                    </select>
                 </div>
-                <div class="lk-link-wrap">
-                    <a href="lk.hrml"><p>Профиль</p></a>
+                <div class="versus" aria-hidden="true">VS</div>
+                <div class="form-group">
+                    <label for="component-two">Вторая видеокарта</label>
+                    <select id="component-two" name="second_id" required>
+                        <option value="">Загрузка списка...</option>
+                    </select>
                 </div>
-            </nav>
-        </header>
-        <main>
-            <section class="about">
-                <p>Здесь вы можете сравнить характеристики разных видеокарт. Выберите видеокарты и нажмите СРАВНИТЬ.</p>
-            </section>
-            <section class="form-wrap">
-                <form id="gpus-for-compair">
-                    <div class="form-group">
-                        <label for="gpu1">Видеокарта 1:</label>
-                        <select name="gpu1" id="gpu1" required>
-                            <option value="none">Выбрать...</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="gpu2">Видеокарта 2:</label>
-                        <select name="gpu2" id="gpu2" required>
-                            <option value="none">Выбрать...</option>
-                        </select>
-                    </div>
-                    <div class="form-controls">
-                        <button type="reset">Сбросить</button>
-                        <button type="submit">Сравнить</button>
-                    </div>
-                </form>
-            </section>
-        </main>
-        <footer>
-            <p>None rights reserved</p>
-        </footer>
-        <script src="static/scripts/main.js"></script>
-        <script src="static/scripts/get_gpus.js"></script>
-    </body>
+                <div class="form-actions">
+                    <button class="button button-outline" type="reset">Сбросить</button>
+                    <button class="button button-primary" type="submit">Сравнить модели</button>
+                </div>
+            </form>
+            <p id="comparison-status" class="status-message" role="status" aria-live="polite"></p>
+        </section>
+        <section id="comparison-result" class="comparison-result" aria-live="polite"></section>
+    </main>
+    <footer class="site-footer"><div class="container footer-inner"><span class="brand">SPECS<span>-MASTER</span></span><span>Данные загружаются из каталога SPECS-MASTER</span></div></footer>
+    <script src="/static/scripts/main.js"></script>
+    <script src="/static/scripts/comparison.js"></script>
+</body>
 </html>

@@ -1,32 +1,63 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="static/styles/style.css">
-        <title>SPECS-MASTER</title>
-    </head>
-    <body>
-        <header>
-            <nav>
-                <div class="pages">
-                    <a href="/" id="index-page-link" class="link"><p>Главная</p></a>
-                    <a href="/gpus" id="gpus-page-link" class="link"><p>Видеокарты</p></a>
-                    <a href="/cpus" id="cpus-page-link" class="link"><p>Процессоры</p></a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Сравнивайте характеристики процессоров и видеокарт в SPECS-MASTER.">
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <title>SPECS-MASTER — сравнение комплектующих</title>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navigation container" aria-label="Основная навигация">
+            <a class="brand" href="/">SPECS<span>-MASTER</span></a>
+            <div class="nav-links">
+                <a class="nav-link active" href="/">Главная</a>
+                <a class="nav-link" href="/cpus">Процессоры</a>
+                <a class="nav-link" href="/gpus">Видеокарты</a>
+            </div>
+            <div class="account-links">
+                <a class="button button-outline profile-link" href="/lk">Войти</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero container">
+            <div class="hero-copy">
+                <p class="eyebrow">Характеристики без лишнего шума</p>
+                <h1>Выбирайте комплектующие <span>уверенно</span></h1>
+                <p class="hero-lead">Сравните процессоры и видеокарты по важным характеристикам — в одном месте и в удобном формате.</p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="/cpus">Сравнить процессоры</a>
+                    <a class="button button-outline" href="/gpus">Сравнить видеокарты</a>
                 </div>
-                <div class="lk-link-wrap">
-                    <a href="lk.hrml"><p>Профиль</p></a>
-                </div>
-            </nav>
-        </header>
-        <main>
-            <section class="about">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consectetur molestias ducimus, repellat culpa necessitatibus itaque facilis quam quod tempore sunt voluptate dicta error vitae accusamus recusandae at. Tenetur assumenda, temporibus eligendi vitae adipisci tempore consequatur, quasi at, commodi voluptas eos odio facere sit facilis? Est porro impedit quam nostrum.</p>
-            </section>
-        </main>
-        <footer>
-            <p>None rights reserved</p>
-        </footer>
-        <script src="static/scripts/main.js"></script>
-    </body>
+            </div>
+            <div class="hero-card" aria-label="Возможности SPECS-MASTER">
+                <div class="hero-card-mark">S</div>
+                <p class="eyebrow">SPECS-MASTER</p>
+                <h2>Главное — в цифрах</h2>
+                <p>Понятные параметры помогут быстро заметить разницу между моделями.</p>
+                <div class="stat-row"><span>CPU</span><span>ядра · потоки · частота</span></div>
+                <div class="stat-row"><span>GPU</span><span>память · тип · частоты</span></div>
+            </div>
+        </section>
+        <section class="container section-block">
+            <div class="section-heading">
+                <p class="eyebrow">Как это работает</p>
+                <h2>Сравнение в три шага</h2>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-card"><span class="feature-number">01</span><h3>Выберите категорию</h3><p>Откройте каталог процессоров или видеокарт.</p></article>
+                <article class="feature-card"><span class="feature-number">02</span><h3>Укажите две модели</h3><p>Список комплектующих загружается из базы данных.</p></article>
+                <article class="feature-card"><span class="feature-number">03</span><h3>Сопоставьте параметры</h3><p>Посмотрите характеристики рядом и решите, что подходит вам.</p></article>
+            </div>
+        </section>
+        <section class="container section-block category-grid">
+            <a class="category-card" href="/cpus"><span class="category-icon">CPU</span><span><strong>Процессоры</strong><small>Ядра, потоки и частота</small></span><span class="category-arrow" aria-hidden="true">→</span></a>
+            <a class="category-card" href="/gpus"><span class="category-icon">GPU</span><span><strong>Видеокарты</strong><small>Видеопамять и частоты</small></span><span class="category-arrow" aria-hidden="true">→</span></a>
+        </section>
+    </main>
+    <footer class="site-footer"><div class="container footer-inner"><span class="brand">SPECS<span>-MASTER</span></span><span>Сравнение характеристик компьютерных комплектующих</span></div></footer>
+    <script src="/static/scripts/main.js"></script>
+</body>
 </html>

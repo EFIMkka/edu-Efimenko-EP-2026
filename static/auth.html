@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru" data-account-page="auth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <title>Вход и регистрация — SPECS-MASTER</title>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navigation container" aria-label="Основная навигация">
+            <a class="brand" href="/">SPECS<span>-MASTER</span></a>
+            <div class="nav-links">
+                <a class="nav-link" href="/">Главная</a>
+                <a class="nav-link" href="/cpus">Процессоры</a>
+                <a class="nav-link" href="/gpus">Видеокарты</a>
+            </div>
+            <div class="account-links"><a class="button button-outline profile-link" href="/lk">Профиль</a></div>
+        </nav>
+    </header>
+    <main class="container page-content narrow-content">
+        <section class="page-intro">
+            <p class="eyebrow">Аккаунт SPECS-MASTER</p>
+            <h1>Добро пожаловать</h1>
+            <p>Войдите в существующий аккаунт или зарегистрируйтесь.</p>
+        </section>
+        <div class="auth-grid">
+            <section class="panel auth-card">
+                <h2>Вход</h2>
+                <form id="login-form" class="stacked-form">
+                    <label for="login-email">Электронная почта</label>
+                    <input id="login-email" name="email" type="email" autocomplete="email" required maxlength="255">
+                    <label for="login-password">Пароль</label>
+                    <input id="login-password" name="password" type="password" autocomplete="current-password" required maxlength="128">
+                    <button class="button button-primary" type="submit">Войти</button>
+                </form>
+                <p id="login-status" class="status-message" role="status" aria-live="polite"></p>
+            </section>
+            <section class="panel auth-card">
+                <h2>Регистрация</h2>
+                <form id="register-form" class="stacked-form">
+                    <label for="register-nickname">Имя пользователя</label>
+                    <input id="register-nickname" name="nickname" type="text" autocomplete="nickname" required minlength="2" maxlength="33">
+                    <label for="register-email">Электронная почта</label>
+                    <input id="register-email" name="email" type="email" autocomplete="email" required maxlength="255">
+                    <label for="register-password">Пароль <span class="field-hint">(не менее 10 символов)</span></label>
+                    <input id="register-password" name="password" type="password" autocomplete="new-password" required minlength="10" maxlength="128">
+                    <label for="register-avatar">Аватар <span class="field-hint">(необязательно; JPG, PNG или WebP, до 2 МиБ)</span></label>
+                    <input id="register-avatar" name="avatar" type="file" accept=".jpg,.png,.webp">
+                    <button class="button button-primary" type="submit">Создать аккаунт</button>
+                </form>
+                <p id="register-status" class="status-message" role="status" aria-live="polite"></p>
+            </section>
+        </div>
+    </main>
+    <footer class="site-footer"><div class="container footer-inner"><span class="brand">SPECS<span>-MASTER</span></span><span>Ваша подборка комплектующих начинается здесь</span></div></footer>
+    <script src="/static/scripts/main.js"></script>
+    <script src="/static/scripts/account.js"></script>
+</body>
+</html>

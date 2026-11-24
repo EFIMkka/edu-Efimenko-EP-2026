@@ -1,12 +1,60 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-account-page="profile">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPECS-MASTER | Личный кабинет</title>
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <title>Личный кабинет — SPECS-MASTER</title>
 </head>
 <body>
-    
-    <script src="static/scripts/main.js"></script>
+    <header class="site-header">
+        <nav class="navigation container" aria-label="Основная навигация">
+            <a class="brand" href="/">SPECS<span>-MASTER</span></a>
+            <div class="nav-links">
+                <a class="nav-link" href="/">Главная</a>
+                <a class="nav-link" href="/cpus">Процессоры</a>
+                <a class="nav-link" href="/gpus">Видеокарты</a>
+            </div>
+            <div class="account-links"><a class="button button-outline profile-link active" href="/lk">Личный кабинет</a></div>
+        </nav>
+    </header>
+    <main class="container page-content narrow-content">
+        <section class="page-intro">
+            <p class="eyebrow">Ваш аккаунт</p>
+            <h1>Личный кабинет</h1>
+            <p>Войдите или создайте аккаунт, чтобы пользоваться профилем SPECS-MASTER.</p>
+        </section>
+        <section id="login-required" class="panel account-panel">
+            <div class="account-cta">
+                <h2>Войдите в аккаунт</h2>
+                <p>Чтобы увидеть данные профиля, войдите или зарегистрируйтесь.</p>
+                <a class="button button-primary" href="/login">Войти или зарегистрироваться</a>
+            </div>
+        </section>
+        <section id="profile-panel" class="panel account-panel" hidden>
+            <div class="profile-heading">
+                <img id="profile-avatar" class="profile-avatar" alt="Аватар пользователя">
+                <div><p class="eyebrow">Профиль пользователя</p><h2 id="profile-nickname"></h2></div>
+            </div>
+            <dl class="profile-details">
+                <div><dt>Электронная почта</dt><dd id="profile-email"></dd></div>
+                <div><dt>Тип аккаунта</dt><dd id="profile-role"></dd></div>
+            </dl>
+            <div class="profile-actions">
+                <a id="profile-admin-link" class="button button-primary" href="/admin" hidden>Панель администратора</a>
+                <button id="logout-button" class="button button-outline" type="button">Выйти</button>
+            </div>
+            <form id="avatar-form" class="avatar-upload-form">
+                <label for="profile-avatar-file">Изменить аватар <span class="field-hint">(JPG, PNG или WebP; до 2 МиБ)</span></label>
+                <input id="profile-avatar-file" name="image" type="file" accept=".jpg,.png,.webp" required>
+                <button class="button button-primary" type="submit">Загрузить аватар</button>
+            </form>
+            <p id="avatar-status" class="status-message" role="status" aria-live="polite"></p>
+            <p id="account-status" class="status-message" role="status" aria-live="polite"></p>
+        </section>
+    </main>
+    <footer class="site-footer"><div class="container footer-inner"><span class="brand">SPECS<span>-MASTER</span></span><span>Ваш профиль в SPECS-MASTER</span></div></footer>
+    <script src="/static/scripts/main.js"></script>
+    <script src="/static/scripts/account.js"></script>
 </body>
 </html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru" data-admin-page>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <title>Добавление комплектующих — SPECS-MASTER</title>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navigation container" aria-label="Основная навигация">
+            <a class="brand" href="/">SPECS<span>-MASTER</span></a>
+            <div class="nav-links">
+                <a class="nav-link" href="/">Главная</a>
+                <a class="nav-link" href="/cpus">Процессоры</a>
+                <a class="nav-link" href="/gpus">Видеокарты</a>
+            </div>
+            <div class="account-links"><a class="button button-outline profile-link" href="/lk">Профиль</a></div>
+        </nav>
+    </header>
+    <main class="container page-content">
+        <section class="page-intro">
+            <p class="eyebrow">Управление каталогом</p>
+            <h1>Панель администратора</h1>
+            <p>Добавляйте комплектующие в каталог сравнения. Поля характеристик должны соответствовать данным производителя.</p>
+        </section>
+        <div class="admin-grid">
+            <section class="panel admin-card">
+                <h2>Добавить процессор</h2>
+                <form id="admin-cpu-form" class="stacked-form">
+                    <label for="cpu-name">Название</label>
+                    <input id="cpu-name" name="full_product_name" required maxlength="255">
+                    <div class="field-row">
+                        <div><label for="cpu-cores">Ядра</label><input id="cpu-cores" name="cores_count" type="number" min="1" required></div>
+                        <div><label for="cpu-threads">Потоки</label><input id="cpu-threads" name="threads_count" type="number" min="1" required></div>
+                    </div>
+                    <label for="cpu-frequency">Частота (ГГц)</label>
+                    <input id="cpu-frequency" name="clock_frequency" type="number" min="0.1" step="0.1" required>
+                    <label for="cpu-image">Изображение <span class="field-hint">(JPG, PNG или WebP; до 2 МиБ)</span></label>
+                    <input id="cpu-image" name="image" type="file" accept=".jpg,.png,.webp">
+                    <button class="button button-primary" type="submit">Добавить процессор</button>
+                </form>
+                <p id="cpu-admin-status" class="status-message" role="status" aria-live="polite"></p>
+            </section>
+            <section class="panel admin-card">
+                <h2>Добавить видеокарту</h2>
+                <form id="admin-gpu-form" class="stacked-form">
+                    <label for="gpu-name">Название</label>
+                    <input id="gpu-name" name="full_product_name" required maxlength="255">
+                    <label for="gpu-vram-type">Тип видеопамяти</label>
+                    <select id="gpu-vram-type" name="vram_type" required>
+                        <option value="GDDR4">GDDR4</option>
+                        <option value="GDDR5">GDDR5</option>
+                        <option value="GDDR6">GDDR6</option>
+                        <option value="GDDR6X">GDDR6X</option>
+                        <option value="GDDR7">GDDR7</option>
+                    </select>
+                    <div class="field-row">
+                        <div><label for="gpu-vram-volume">Объём памяти (ГБ)</label><input id="gpu-vram-volume" name="vram_volume" type="number" min="1" required></div>
+                        <div><label for="gpu-vram-clock">Частота памяти (МГц)</label><input id="gpu-vram-clock" name="vram_clock_frequency" type="number" min="1" required></div>
+                    </div>
+                    <label for="gpu-core-clock">Частота ядра (МГц)</label>
+                    <input id="gpu-core-clock" name="core_clock_frequency" type="number" min="1" required>
+                    <label for="gpu-image">Изображение <span class="field-hint">(JPG, PNG или WebP; до 2 МиБ)</span></label>
+                    <input id="gpu-image" name="image" type="file" accept=".jpg,.png,.webp">
+                    <button class="button button-primary" type="submit">Добавить видеокарту</button>
+                </form>
+                <p id="gpu-admin-status" class="status-message" role="status" aria-live="polite"></p>
+            </section>
+        </div>
+    </main>
+    <footer class="site-footer"><div class="container footer-inner"><span class="brand">SPECS<span>-MASTER</span></span><span>Администрирование каталога</span></div></footer>
+    <script src="/static/scripts/main.js"></script>
+    <script src="/static/scripts/admin.js"></script>
+</body>
+</html>

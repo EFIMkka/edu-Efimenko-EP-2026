@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: MySQL-8.4:3306
--- Время создания: Ноя 22 2026 г., 19:57
+-- Время создания: Ноя 24 2026 г., 16:04
 -- Версия сервера: 8.4.6
 -- Версия PHP: 8.4.13
 
@@ -31,6 +31,9 @@ CREATE TABLE `cpus` (
   `id` int NOT NULL COMMENT 'uniqie cpu''s identifyer',
   `full_product_name` varchar(255) NOT NULL COMMENT 'full product name',
   `technical_name` varchar(255) NOT NULL COMMENT 'technical product name',
+  `cores_count` int NOT NULL,
+  `threads_count` int NOT NULL,
+  `clock_frequency` float NOT NULL,
   `cpu_image_dir_path` varchar(255) NOT NULL COMMENT 'path to the product image'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -38,9 +41,9 @@ CREATE TABLE `cpus` (
 -- Дамп данных таблицы `cpus`
 --
 
-INSERT INTO `cpus` (`id`, `full_product_name`, `technical_name`, `cpu_image_dir_path`) VALUES
-(1, 'AMD Ryzen 9 9950X3D2', 'amd_ryzen_9_9950x3d2', ''),
-(2, 'AMD Ryzen 7 5700x', 'amd_ryzen_7_5700x', '');
+INSERT INTO `cpus` (`id`, `full_product_name`, `technical_name`, `cores_count`, `threads_count`, `clock_frequency`, `cpu_image_dir_path`) VALUES
+(1, 'AMD Ryzen 9 9950X3D2', 'amd_ryzen_9_9950x3d2', 16, 32, 4.3, ''),
+(2, 'AMD Ryzen 7 5700x', 'amd_ryzen_7_5700x', 8, 16, 4.6, '');
 
 -- --------------------------------------------------------
 
@@ -52,6 +55,10 @@ CREATE TABLE `gpus` (
   `id` int NOT NULL COMMENT 'gpu''s unique identifier',
   `full_product_name` varchar(255) NOT NULL COMMENT 'full gpu name',
   `technical_name` varchar(255) NOT NULL COMMENT 'technical product name, unvisible for user. with no whitespaces, lowercase',
+  `vram_type` set('GDDR4','GDDR5','GDDR6','GDDR6X','GDDR7') NOT NULL,
+  `vram_volume` int NOT NULL,
+  `vram_clock_frequency` int NOT NULL,
+  `core_clock_frequency` int NOT NULL,
   `gpu_image_dir_path` varchar(255) NOT NULL COMMENT 'path to the image of the gpu'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -59,9 +66,9 @@ CREATE TABLE `gpus` (
 -- Дамп данных таблицы `gpus`
 --
 
-INSERT INTO `gpus` (`id`, `full_product_name`, `technical_name`, `gpu_image_dir_path`) VALUES
-(1, 'NVIDIA Geforce RTX 5090', 'nvidia_geforce_rtx_5090', ''),
-(2, 'NVIDIA Geforce RTX 5070', 'nvidia_geforce_rtx_5070', '');
+INSERT INTO `gpus` (`id`, `full_product_name`, `technical_name`, `vram_type`, `vram_volume`, `vram_clock_frequency`, `core_clock_frequency`, `gpu_image_dir_path`) VALUES
+(1, 'NVIDIA Geforce RTX 5090', 'nvidia_geforce_rtx_5090', 'GDDR7', 32, 14000, 2017, ''),
+(2, 'NVIDIA Geforce RTX 5070', 'nvidia_geforce_rtx_5070', 'GDDR7', 12, 14000, 1800, '');
 
 -- --------------------------------------------------------
 
@@ -74,7 +81,8 @@ CREATE TABLE `users` (
   `nickname` varchar(33) NOT NULL COMMENT 'user''s nickname. unique',
   `email` varchar(255) NOT NULL COMMENT 'user''s email address. unique',
   `password` varchar(255) NOT NULL COMMENT 'user''s password. stored in hashed form',
-  `avatar_dir_path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'path to the user''s uploaded avatar image'
+  `avatar_dir_path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'path to the user''s uploaded avatar image',
+  `role` varchar(16) NOT NULL DEFAULT 'user' COMMENT 'user or admin'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
