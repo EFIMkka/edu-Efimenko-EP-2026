@@ -35,10 +35,7 @@ from starlette.middleware.sessions import SessionMiddleware
 
 ROOT = Path(__file__).resolve().parent
 STATIC_DIR = ROOT / "static"
-DATABASE_URL = os.getenv(
-    "DATABASE_URL",
-    "mysql+aiomysql://root@MySQL-8.4:3306/specs_master_db",
-)
+DATABASE_URL = "sqlite:////data/database.db"
 SESSION_SECRET = os.getenv("SESSION_SECRET") or secrets.token_urlsafe(32)
 ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", "").strip().lower()
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "")
