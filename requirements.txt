@@ -3,6 +3,7 @@ uvicorn
 sqlalchemy
 greenlet
 aiomysql
+aiosqlite
 cryptography
 itsdangerous
 python-multipart

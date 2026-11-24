@@ -35,14 +35,14 @@ from starlette.middleware.sessions import SessionMiddleware
 
 ROOT = Path(__file__).resolve().parent
 STATIC_DIR = ROOT / "static"
-DATABASE_URL = "sqlite:////data/database.db"
+DATABASE_URL = "sqlite+aiosqlite:////data/database.db"
 SESSION_SECRET = os.getenv("SESSION_SECRET") or secrets.token_urlsafe(32)
 ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", "").strip().lower()
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "")
 ADMIN_NICKNAME = os.getenv("ADMIN_NICKNAME", "Specs Admin").strip()
 MAX_IMAGE_SIZE = 2 * 1024 * 1024
 IMAGE_FORMATS = {".jpg": "JPEG", ".png": "PNG", ".webp": "WEBP"}
-engine = create_async_engine(DATABASE_URL, pool_pre_ping=True)
+engine = create_async_engine(DATABASE_URL)
 async_session = async_sessionmaker(engine, expire_on_commit=False)
 
 
