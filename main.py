@@ -24,6 +24,14 @@ class Gpu(Base):
     technical_name: Mapped[str] = mapped_column(String(255))
 
 
+class Cpu(Base):
+    __tablename__ = 'cpus'
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    full_product_name: Mapped[str] = mapped_column(String(255))
+    technical_name: Mapped[str] = mapped_column(String(255))
+
+
 async def get_db():
     async with async_session() as session:
         yield session
@@ -34,6 +42,14 @@ app = FastAPI()
 @app.get('/api/gpus')
 async def get_gpus(db: AsyncSession = Depends(get_db)):
     result = await db.execute(select(Gpu))
+    items = result.scalars().all()
+
+    return items
+
+
+@app.get('/api/cpus')
+async def get_gpus(db: AsyncSession = Depends(get_db)):
+    result = await db.execute(select(Cpu))
     items = result.scalars().all()
 
     return items
