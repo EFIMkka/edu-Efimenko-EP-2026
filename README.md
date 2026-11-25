@@ -25,3 +25,7 @@ Passwords are stored as PBKDF2-SHA256 hashes. Session cookies are HTTP-only and 
 ## Images
 
 CPU/GPU images can be uploaded from the admin panel; avatars are optional during registration and can also be changed in the profile. Uploads accept valid JPG, PNG, or WebP images up to 2 MiB. Component images are stored under `static/images/site/cpus/` or `static/images/site/gpus/`; avatars are stored under `static/images/users/`. Names are generated from the product name or nickname, transliterated to lowercase ASCII with underscores. A slug already in use is rejected rather than overwriting another image. The UI uses `static/images/site/base_specs_master_img.png` and `static/images/users/base_user_img.png` as fallbacks.
+
+## Performance comparison
+
+The CPU and GPU comparison pages calculate a client-side performance index from the numeric specifications shown in the comparison. Each metric is scored against the higher value in the selected pair, metrics are averaged with equal weight, and the higher resulting average is normalized to 100%. The pages display the rounded relative scores as a horizontal Chart.js bar chart. The GPU memory type is categorical, so it remains in the specification table and is not included in the numeric performance index.
